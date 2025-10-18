@@ -17,7 +17,11 @@ router.get('/', async (ctx) => {
 
 router.get('/gold/price', async (ctx) => {
   const prices = await db.select().from(gold_price);
-  ctx.body = prices;
+  ctx.body = prices.map(item => ({
+    price: item.price,
+    price_time: item.price_time,
+    price_time_type: item.price_time_type,
+  }));
 });
 
 app.use(router.routes()).use(router.allowedMethods());
