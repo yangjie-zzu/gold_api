@@ -4,7 +4,6 @@ import { eq, and } from 'drizzle-orm';
 import { desc } from 'drizzle-orm/sql/expressions';
 
 export const updateLastPrice = async (): Promise<void> => {
-  console.log('DATABASE_URL:', process.env.DATABASE_URL);
 
   const res = await fetch('https://ms.jr.jd.com/gw/generic/hj/h5/m/latestPrice?reqData={}', {
     headers: {
